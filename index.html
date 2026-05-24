@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunita Tour & Travels — Goa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f0e8;
+      --cream: #ede8dc;
+      --rust: #c94c2e;
+      --gold: #d4a843;
+      --mid: #2a2520;
+      --soft: #6b6258;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 60px;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.97), transparent);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: var(--white);
+      text-decoration: none;
+      line-height: 1.1;
+    }
+    .nav-logo span { color: var(--rust); }
+    .nav-logo small {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8px;
+      letter-spacing: 3px;
+      color: var(--soft);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--soft);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201,76,46,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-bg-text {
+      position: absolute;
+      bottom: -40px; right: -20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(140px, 18vw, 280px);
+      color: rgba(255,255,255,0.03);
+      letter-spacing: -10px;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .hero-content { z-index: 2; }
+    .hero-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--rust);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 32px; height: 1px;
+      background: var(--rust);
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(62px, 8vw, 120px);
+      line-height: 0.9;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--rust);
+      display: block;
+    }
+    .hero-desc {
+      font-size: 17px;
+      line-height: 1.85;
+      color: var(--soft);
+      max-width: 420px;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+    .gst-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      border: 1px solid rgba(212,168,67,0.2);
+      padding: 6px 14px;
+      margin-bottom: 36px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--rust);
+      color: var(--white);
+      padding: 16px 36px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    }
+    .btn-primary:hover { background: #b03d22; transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: transparent;
+      color: var(--white);
+      padding: 15px 36px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(245,240,232,0.2);
+      cursor: pointer;
+      transition: border-color 0.3s, color 0.3s, transform 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--white); transform: translateY(-2px); }
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25d366;
+      color: #fff;
+      padding: 15px 30px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    }
+    .btn-whatsapp:hover { background: #1eb857; transform: translateY(-2px); }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-visual {
+      z-index: 2;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 24px;
+    }
+    .hero-car-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 32px;
+      width: 100%;
+      max-width: 460px;
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    .hero-car-badge {
+      position: absolute; top: 20px; right: 20px;
+      background: var(--rust);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      padding: 5px 12px;
+      text-transform: uppercase;
+    }
+    .hero-car-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-car-img img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-car-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .hero-car-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .hero-stats {
+      display: flex; gap: 32px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 16px;
+      margin-top: 8px;
+    }
+    .stat { display: flex; flex-direction: column; gap: 4px; }
+    .stat-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--white);
+    }
+    .stat-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: var(--soft);
+      text-transform: uppercase;
+    }
+
+    /* TICKER */
+    .ticker {
+      background: var(--rust);
+      padding: 12px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-flex; gap: 60px;
+      animation: ticker 25s linear infinite;
+    }
+    .ticker span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .ticker-dot { color: rgba(255,255,255,0.4); }
+    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    /* SECTION COMMON */
+    section { padding: 100px 60px; }
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--rust);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before { content:''; width:24px; height:1px; background:var(--rust); }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 6vw, 80px);
+      letter-spacing: 2px;
+      line-height: 1;
+      margin-bottom: 60px;
+    }
+
+    /* FLEET */
+    #fleet { background: var(--black); }
+    .fleet-filters {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .filter-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--soft);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--rust);
+      border-color: var(--rust);
+      color: var(--white);
+    }
+    .cars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2px;
+    }
+    .car-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 32px;
+      position: relative;
+      transition: background 0.3s, transform 0.3s;
+      display: flex; flex-direction: column;
+      animation: fadeUp 0.6s ease both;
+    }
+    .car-card:hover {
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-4px);
+      border-color: rgba(201,76,46,0.3);
+    }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    .car-card:nth-child(2) { animation-delay: 0.1s; }
+    .car-card:nth-child(3) { animation-delay: 0.2s; }
+    .car-card:nth-child(4) { animation-delay: 0.3s; }
+    .car-card:nth-child(5) { animation-delay: 0.4s; }
+    .car-card:nth-child(6) { animation-delay: 0.5s; }
+    .car-category {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      color: var(--rust);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* Image placeholder for cars (user will add images later) */
+    .car-img-slot {
+      width: 100%;
+      height: 190px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #1a1510 0%, #2a2520 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px dashed rgba(255,255,255,0.08);
+    }
+    .car-img-slot img {
+      width: 100%; height: 100%; object-fit: cover;
+      position: absolute; inset: 0;
+      display: block;
+    }
+    .car-img-slot .placeholder-icon { font-size: 52px; opacity: 0.5; }
+    .car-img-slot .placeholder-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: var(--soft);
+      text-transform: uppercase;
+    }
+    .car-card:hover .car-img-slot img { transform: scale(1.05); transition: transform 0.4s ease; }
+
+    .car-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .car-model {
+      font-size: 13px;
+      color: var(--soft);
+      margin-bottom: 20px;
+    }
+    .car-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .spec { display: flex; flex-direction: column; gap: 3px; }
+    .spec-val {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--white);
+    }
+    .spec-key {
+      font-size: 10px;
+      color: var(--soft);
+      letter-spacing: 1px;
+    }
+    .car-features {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 28px;
+    }
+    .feature-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      padding: 5px 10px;
+      background: rgba(212,168,67,0.08);
+      border: 1px solid rgba(212,168,67,0.15);
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .car-footer {
+      display: flex; align-items: center; justify-content: center;
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .book-wa-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: #25d366;
+      color: #fff;
+      padding: 13px 24px;
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+    .book-wa-btn:hover { background: #1eb857; }
+    .card-available {
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: #4caf78;
+      text-transform: uppercase;
+    }
+    .avail-dot { width:7px; height:7px; background:#4caf78; border-radius:50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* PRICING */
+    #pricing { background: #0d0c0a; }
+    .pricing-tabs {
+      display: flex; gap: 0;
+      margin-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .pricing-tab {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      background: transparent;
+      border: none;
+      color: var(--soft);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.3s;
+    }
+    .pricing-tab.active {
+      color: var(--white);
+      border-bottom-color: var(--rust);
+    }
+    .pricing-tab:hover { color: var(--white); }
+    .pricing-panel { display: none; }
+    .pricing-panel.active { display: block; }
+
+    /* Airport pricing table */
+    .route-table-wrap { overflow-x: auto; }
+    .route-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .route-table th {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rust);
+      padding: 14px 20px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      white-space: nowrap;
+    }
+    .route-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--white);
+      white-space: nowrap;
+    }
+    .route-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .route-table .place-name { font-weight: 500; color: var(--white); }
+    .route-table .price-range { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--gold); }
+    .route-section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin: 40px 0 20px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .route-section-title::after { content:''; flex:1; height:1px; background:rgba(255,255,255,0.07); }
+    .route-section-title:first-child { margin-top: 0; }
+
+    /* Tour pricing cards */
+    .tour-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .tour-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 28px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .tour-card:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(201,76,46,0.3);
+    }
+    .tour-card-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--rust);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .tour-card-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .tour-price-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 12px;
+    }
+    .tour-price-row:last-of-type { border-bottom: none; }
+    .tour-price-key { color: var(--soft); }
+    .tour-price-val { font-family: 'DM Sans', sans-serif; color: var(--gold); font-size: 12px; }
+    .tour-note {
+      font-size: 11px;
+      color: var(--soft);
+      margin-top: 16px;
+      font-style: italic;
+    }
+
+    /* WHY */
+    #why { background: var(--black); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .why-features { display: flex; flex-direction: column; gap: 0; }
+    .why-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .why-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: rgba(201,76,46,0.3);
+    }
+    .why-text h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .why-text p { font-size: 13px; color: var(--soft); line-height: 1.7; }
+    .why-visual {
+      position: relative;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .why-big-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 160px;
+      color: rgba(201,76,46,0.06);
+      line-height: 1;
+      position: absolute;
+      top: 20px; left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+    .why-stats-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      position: relative; z-index: 2;
+    }
+    .why-stat { display: flex; flex-direction: column; gap: 6px; }
+    .why-stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      color: var(--rust);
+      letter-spacing: 2px;
+    }
+    .why-stat-label { font-size: 12px; color: var(--soft); line-height: 1.5; }
+
+    /* CONTACT */
+    #contact { background: #0d0c0a; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 0; }
+    .contact-info > p {
+      font-size: 15px;
+      color: var(--soft);
+      line-height: 1.8;
+      max-width: 400px;
+      margin-bottom: 40px;
+    }
+    .whatsapp-buttons {
+      display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 40px;
+    }
+    .whatsapp-btn-big {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(37,211,102,0.08);
+      border: 1px solid rgba(37,211,102,0.2);
+      padding: 18px 24px;
+      text-decoration: none;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .whatsapp-btn-big:hover {
+      background: rgba(37,211,102,0.15);
+      border-color: rgba(37,211,102,0.4);
+    }
+    .wa-icon { font-size: 24px; }
+    .wa-info { display: flex; flex-direction: column; gap: 3px; }
+    .wa-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: #25d366;
+      text-transform: uppercase;
+    }
+    .wa-number { font-size: 18px; color: var(--white); font-weight: 500; }
+    .contact-detail {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .contact-icon { font-size: 18px; }
+    .contact-detail-text h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--rust);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .contact-detail-text p { font-size: 14px; color: var(--white); margin: 0; }
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--soft);
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--white);
+      padding: 14px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(107,98,88,0.7); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--rust); }
+    .form-group select { -webkit-appearance: none; appearance: none; cursor: pointer; }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select option { background: #1a1510; }
+    .form-note {
+      font-size: 12px;
+      color: var(--soft);
+      font-style: italic;
+    }
+    .submit-btn {
+      background: #25d366;
+      color: #fff;
+      border: none;
+      padding: 18px 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+      align-self: flex-start;
+    }
+    .submit-btn:hover { background: #1eb857; transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 48px 60px;
+    }
+    .footer-top {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer-brand {}
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 4px;
+      margin-bottom: 6px;
+    }
+    .footer-logo span { color: var(--rust); }
+    .footer-tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--soft);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .footer-gst {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: rgba(212,168,67,0.6);
+    }
+    .footer-links { display: flex; gap: 32px; align-items: flex-start; }
+    .footer-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: var(--soft);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--soft);
+    }
+    .footer-wa {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .footer-wa span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      color: #25d366;
+      letter-spacing: 1px;
+    }
+
+    /* SUCCESS MSG */
+    .success-msg {
+      display: none;
+      background: rgba(37,211,102,0.1);
+      border: 1px solid rgba(37,211,102,0.3);
+      padding: 20px 24px;
+      color: #25d366;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+    }
+
+    /* ── READABILITY OVERRIDES: bigger text, softer spacing ── */
+    .nav-logo small {
+      font-size: 11px; letter-spacing: 1.5px;
+    }
+    .nav-links a {
+      font-size: 13px; letter-spacing: 0.5px; font-weight: 500;
+    }
+    .hero-tag {
+      font-size: 13px; letter-spacing: 1.5px; font-weight: 500;
+    }
+    .gst-badge {
+      font-size: 12px; letter-spacing: 0.5px;
+    }
+    .btn-primary, .btn-ghost, .btn-whatsapp {
+      font-size: 13px; letter-spacing: 1px;
+    }
+    .hero-car-badge { font-size: 12px; letter-spacing: 1px; }
+    .hero-car-sub   { font-size: 13px; letter-spacing: 0.5px; font-weight: 500; }
+    .stat-label     { font-size: 11px; letter-spacing: 0.5px; }
+    .section-label  { font-size: 12px; letter-spacing: 2px; }
+    .filter-btn     { font-size: 12px; letter-spacing: 0.5px; font-weight: 500; }
+    .car-category   { font-size: 11px; letter-spacing: 1px; }
+    .car-model      { font-size: 14px; }
+    .spec-val       { font-size: 14px; }
+    .spec-key       { font-size: 11px; letter-spacing: 0.3px; }
+    .feature-tag    { font-size: 11px; letter-spacing: 0.5px; font-weight: 500; }
+    .price-from     { font-size: 11px; letter-spacing: 0.3px; }
+    .price-per      { font-size: 11px; letter-spacing: 0.3px; }
+    .book-wa-btn    { font-size: 11px; letter-spacing: 1px; font-weight: 500; }
+    .card-available { font-size: 11px; letter-spacing: 0.5px; }
+    .pricing-tab    { font-size: 13px; letter-spacing: 0.5px; font-weight: 500; }
+    .route-table th { font-size: 12px; letter-spacing: 0.5px; }
+    .route-table td, .route-table .price-range { font-size: 14px; }
+    .tour-card-label { font-size: 11px; letter-spacing: 1px; }
+    .tour-price-key  { font-size: 13px; }
+    .tour-price-val  { font-size: 13px; letter-spacing: 0.3px; }
+    .tour-note       { font-size: 12px; }
+    .why-text h3     { font-size: 17px; }
+    .why-text p      { font-size: 14px; }
+    .why-stat-label  { font-size: 13px; }
+    .whatsapp-btn-big .wa-label { font-size: 11px; letter-spacing: 1px; }
+    .whatsapp-btn-big .wa-number { font-size: 19px; }
+    .contact-detail-text h4 { font-size: 11px; letter-spacing: 1px; }
+    .contact-detail-text p  { font-size: 15px; }
+    .form-group label  { font-size: 12px; letter-spacing: 0.5px; font-weight: 500; }
+    .form-group input, .form-group select, .form-group textarea { font-size: 15px; }
+    .form-note         { font-size: 13px; }
+    .submit-btn        { font-size: 13px; letter-spacing: 1.5px; }
+    .footer-tagline    { font-size: 12px; letter-spacing: 0.5px; }
+    .footer-gst        { font-size: 11px; letter-spacing: 0.3px; }
+    .footer-links a    { font-size: 13px; letter-spacing: 0.3px; font-weight: 500; }
+    .footer-copy       { font-size: 12px; letter-spacing: 0.3px; }
+    .footer-wa span    { font-size: 13px; letter-spacing: 0.3px; }
+    /* Details button */
+    .details-btn { font-size: 12px; letter-spacing: 0.5px; font-weight: 500; }
+    /* Modal overrides */
+    .modal-cat-tag   { font-size: 12px; letter-spacing: 1.5px; }
+    .modal-subtitle  { font-size: 13px; letter-spacing: 0.3px; }
+    .modal-plate     { font-size: 11px; letter-spacing: 0.5px; }
+    .modal-highlight { font-size: 14px; }
+    .modal-spec-key  { font-size: 11px; letter-spacing: 0.3px; }
+    .modal-spec-val  { font-size: 13px; }
+    .modal-feat-tag  { font-size: 11px; letter-spacing: 0.5px; font-weight: 500; }
+    .modal-quote-note  { font-size: 13px; }
+    .img-counter       { font-size: 12px; letter-spacing: 0.5px; }
+    /* Ticker */
+    .ticker span { font-size: 16px; letter-spacing: 1px; }
+
+    @media(max-width:900px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      section { padding: 64px 24px; }
+      .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
+      .hero-visual { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+      .footer-top { flex-direction: column; gap: 24px; }
+      .footer-bottom { flex-direction: column; gap: 12px; }
+    }
+
+    /* ── DETAILS BUTTON on card ── */
+    .details-btn {
+      width: 100%;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--soft);
+      padding: 10px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-bottom: 16px;
+      transition: all 0.3s;
+      text-align: left;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .details-btn:hover {
+      border-color: var(--rust);
+      color: var(--white);
+      background: rgba(201,76,46,0.06);
+    }
+
+    /* ── CAR MODAL OVERLAY ── */
+    .car-modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(4,4,3,0.97);
+      z-index: 2000;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s;
+      padding: 16px;
+    }
+    .car-modal-overlay.open {
+      opacity: 1; pointer-events: all;
+    }
+    .car-modal {
+      background: #0f0e0b;
+      border: 1px solid rgba(255,255,255,0.07);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      width: 100%;
+      max-width: 1080px;
+      max-height: 90vh;
+      overflow: hidden;
+      position: relative;
+      transform: translateY(28px) scale(0.98);
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+    }
+    .car-modal-overlay.open .car-modal {
+      transform: translateY(0) scale(1);
+    }
+    .modal-close {
+      position: absolute; top: 18px; right: 22px;
+      background: rgba(10,10,10,0.8);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--soft); font-size: 18px;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 10;
+      transition: all 0.2s;
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--white); border-color: var(--rust); background: var(--rust); }
+
+    /* GALLERY */
+    .modal-gallery {
+      background: #080706;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    .modal-main-img {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+    }
+    .modal-main-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: opacity 0.25s;
+    }
+    .modal-main-img img.fading { opacity: 0; }
+    .gallery-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(8,7,6,0.75);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; line-height: 1;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .gallery-arrow:hover { background: var(--rust); border-color: var(--rust); }
+    .gallery-prev { left: 14px; }
+    .gallery-next { right: 14px; }
+    .img-counter {
+      position: absolute; bottom: 14px; right: 14px;
+      background: rgba(8,7,6,0.8);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px; letter-spacing: 1.5px;
+      color: var(--soft); padding: 4px 10px;
+    }
+    .modal-thumbs {
+      display: flex; gap: 3px;
+      padding: 10px 10px 10px;
+      background: #060504;
+      overflow-x: auto; flex-shrink: 0;
+      scrollbar-width: none;
+    }
+    .modal-thumbs::-webkit-scrollbar { display: none; }
+    .modal-thumb {
+      width: 74px; height: 52px;
+      flex-shrink: 0; object-fit: cover;
+      cursor: pointer; opacity: 0.35;
+      border: 2px solid transparent;
+      transition: opacity 0.2s, border-color 0.2s;
+    }
+    .modal-thumb.active { opacity: 1; border-color: var(--rust); }
+    .modal-thumb:hover { opacity: 0.75; }
+
+    /* INFO PANEL */
+    .modal-info {
+      padding: 36px 32px 28px;
+      overflow-y: auto;
+      display: flex; flex-direction: column; gap: 0;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(201,76,46,0.3) transparent;
+    }
+    .modal-cat-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px; letter-spacing: 3px;
+      color: var(--rust); text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .modal-cat-tag::before { content:''; width:18px; height:1px; background:var(--rust); }
+    .modal-car-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 54px; letter-spacing: 3px; line-height: 0.95;
+      margin-bottom: 6px;
+    }
+    .modal-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; color: var(--gold); letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .modal-plate {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px; letter-spacing: 2px;
+      color: rgba(107,98,88,0.5); text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .modal-highlight {
+      font-size: 13px; color: var(--soft); line-height: 1.85;
+      padding: 16px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 20px;
+    }
+    .modal-specs-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: rgba(255,255,255,0.04);
+      margin-bottom: 20px;
+    }
+    .modal-spec-item {
+      background: #0f0e0b;
+      padding: 11px 14px;
+      display: flex; flex-direction: column; gap: 3px;
+    }
+    .modal-spec-key {
+      font-size: 9px; color: var(--soft);
+      letter-spacing: 1.5px; text-transform: uppercase;
+    }
+    .modal-spec-val {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px; color: var(--white);
+    }
+    .modal-features-row {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: 24px;
+    }
+    .modal-feat-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px; letter-spacing: 1.5px;
+      padding: 4px 10px;
+      background: rgba(212,168,67,0.06);
+      border: 1px solid rgba(212,168,67,0.14);
+      color: var(--gold); text-transform: uppercase;
+    }
+    .modal-price-row {
+      display: flex; flex-direction: column;
+      margin-top: auto; padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      gap: 14px;
+    }
+    .modal-quote-note {
+      font-size: 13px; color: var(--soft); line-height: 1.75;
+    }
+
+    @media(max-width:800px) {
+      .car-modal {
+        grid-template-columns: 1fr;
+        max-height: 92vh; overflow-y: auto;
+      }
+      .modal-main-img { min-height: 220px; }
+      .modal-info { padding: 22px 18px 20px; }
+      .modal-car-name { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    SUNITA<span> TOUR</span>
+    <small>& Travels · Goa</small>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#fleet">Our Cars</a></li>
+    <li><a href="#pricing">Rates</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#contact">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-text">GOA</div>
+  <div class="hero-content">
+    <div class="hero-tag">Trusted Tour & Travels · Goa</div>
+    <h1>YOUR JOURNEY<em>STARTS HERE.</em></h1>
+    <p class="hero-desc">Airport transfers, Goa tours, and outstation trips — comfortable cars, experienced drivers, and honest pricing. Serving Goa since years.</p>
+    <div class="gst-badge">✦ GST No: 30ATFPN7547P1Z6</div>
+    <div class="hero-btns">
+      <a href="#fleet" class="btn-primary">See Our Cars →</a>
+      <a href="https://wa.me/917517414229?text=Hi%20Sunita%20Tour%20%26%20Travels!%20I'd%20like%20to%20book%20a%20car." target="_blank" class="btn-whatsapp">📱 WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-car-card">
+      <div class="hero-car-badge">7-Seater</div>
+      <div class="hero-car-img">
+        <img src="ertiga-front.jpg" alt="Ertiga" />
+      </div>
+      <div class="hero-car-name">ERTIGA</div>
+      <div class="hero-car-sub">7-Seater MUV · AC · Petrol/CNG</div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-val">7</span><span class="stat-label">Seats</span></div>
+        <div class="stat"><span class="stat-val">AC</span><span class="stat-label">Comfort</span></div>
+        <div class="stat"><span class="stat-val">24/7</span><span class="stat-label">Available</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Airport Transfers</span><span class="ticker-dot">◆</span>
+    <span>Goa Sightseeing</span><span class="ticker-dot">◆</span>
+    <span>Dudhsagar Tours</span><span class="ticker-dot">◆</span>
+    <span>Karnataka Trips</span><span class="ticker-dot">◆</span>
+    <span>Outstation Travel</span><span class="ticker-dot">◆</span>
+    <span>Reliable Drivers</span><span class="ticker-dot">◆</span>
+    <span>GST Registered</span><span class="ticker-dot">◆</span>
+    <span>Airport Transfers</span><span class="ticker-dot">◆</span>
+    <span>Goa Sightseeing</span><span class="ticker-dot">◆</span>
+    <span>Dudhsagar Tours</span><span class="ticker-dot">◆</span>
+    <span>Karnataka Trips</span><span class="ticker-dot">◆</span>
+    <span>Outstation Travel</span><span class="ticker-dot">◆</span>
+    <span>Reliable Drivers</span><span class="ticker-dot">◆</span>
+    <span>GST Registered</span><span class="ticker-dot">◆</span>
+  </div>
+</div>
+
+<!-- FLEET -->
+<section id="fleet">
+  <div class="section-label">Our Fleet</div>
+  <div class="section-title">AVAILABLE CARS</div>
+
+  <div class="fleet-filters">
+    <button class="filter-btn active" onclick="filterCars('all', this)">All</button>
+    <button class="filter-btn" onclick="filterCars('hatchback', this)">Hatchback</button>
+    <button class="filter-btn" onclick="filterCars('sedan', this)">Sedan</button>
+    <button class="filter-btn" onclick="filterCars('premium', this)">Premium Sedan</button>
+    <button class="filter-btn" onclick="filterCars('muv', this)">MUV</button>
+  </div>
+
+  <div class="cars-grid" id="carsGrid">
+
+    <!-- 1. ERTIGA -->
+    <div class="car-card" data-cat="muv">
+      <span class="car-category">MUV · 7 Seater</span>
+      <div class="car-img-slot" id="img-ertiga">
+        <img src="ertiga-side.jpg" alt="Ertiga" />
+      </div>
+      <div class="car-name">ERTIGA</div>
+      <div class="car-model">Maruti Suzuki · AC · Petrol/CNG</div>
+      <div class="car-specs">
+        <div class="spec"><span class="spec-val">7 Seats</span><span class="spec-key">Capacity</span></div>
+        <div class="spec"><span class="spec-val">Manual</span><span class="spec-key">Transmission</span></div>
+        <div class="spec"><span class="spec-val">AC</span><span class="spec-key">Comfort</span></div>
+        <div class="spec"><span class="spec-val">~17 km/l</span><span class="spec-key">Mileage</span></div>
+      </div>
+      <div class="car-features">
+        <span class="feature-tag">7 Seater</span>
+        <span class="feature-tag">Spacious Boot</span>
+        <span class="feature-tag">Family Trips</span>
+      </div>
+      <button class="details-btn" onclick="openModal('ertiga')">View All Photos &amp; Details <span>→</span></button>
+      <div class="car-footer">
+      <a class="book-wa-btn" href="https://wa.me/917517414229?text=Hi!%20I%20want%20to%20book%20the%20Ertiga." target="_blank">📱 Book / Get Quote</a>
+      </div>
+    </div>
+
+    <!-- 2. SWIFT DZIRE (NEW) -->
+    <div class="car-card" data-cat="sedan">
+      <span class="car-category">Sedan · 5 Seater</span>
+      <div class="car-img-slot" id="img-dzire-new">
+        <img src="dzire-new-front.jpg" alt="Swift Dzire New" />
+      </div>
+      <div class="car-name">SWIFT DZIRE</div>
+      <div class="car-model">New Model · AC · Petrol</div>
+      <div class="car-specs">
+        <div class="spec"><span class="spec-val">5 Seats</span><span class="spec-key">Capacity</span></div>
+        <div class="spec"><span class="spec-val">Manual/Auto</span><span class="spec-key">Transmission</span></div>
+        <div class="spec"><span class="spec-val">AC</span><span class="spec-key">Comfort</span></div>
+        <div class="spec"><span class="spec-val">~23 km/l</span><span class="spec-key">Mileage</span></div>
+      </div>
+      <div class="car-features">
+        <span class="feature-tag">Fuel Efficient</span>
+        <span class="feature-tag">Comfortable</span>
+        <span class="feature-tag">New Model</span>
+      </div>
+      <button class="details-btn" onclick="openModal('dzire-new')">View All Photos &amp; Details <span>→</span></button>
+      <div class="car-footer">
+      <a class="book-wa-btn" href="https://wa.me/917517414229?text=Hi!%20I%20want%20to%20book%20the%20Swift%20Dzire%20(New)." target="_blank">📱 Book / Get Quote</a>
+      </div>
+    </div>
+
+    <!-- 3. SWIFT DZIRE (OLD) -->
+    <div class="car-card" data-cat="sedan">
+      <span class="car-category">Sedan · 5 Seater</span>
+      <div class="car-img-slot" id="img-dzire-old">
+        <img src="dzire-old-front.jpg" alt="Swift Dzire Old" />
+      </div>
+      <div class="car-name">SWIFT DZIRE</div>
+      <div class="car-model">Old Model · AC · Petrol</div>
+      <div class="car-specs">
+        <div class="spec"><span class="spec-val">5 Seats</span><span class="spec-key">Capacity</span></div>
+        <div class="spec"><span class="spec-val">Manual</span><span class="spec-key">Transmission</span></div>
+        <div class="spec"><span class="spec-val">AC</span><span class="spec-key">Comfort</span></div>
+        <div class="spec"><span class="spec-val">~22 km/l</span><span class="spec-key">Mileage</span></div>
+      </div>
+      <div class="car-features">
+        <span class="feature-tag">Budget Friendly</span>
+        <span class="feature-tag">Reliable</span>
+        <span class="feature-tag">Airport Drops</span>
+      </div>
+      <button class="details-btn" onclick="openModal('dzire-old')">View All Photos &amp; Details <span>→</span></button>
+      <div class="car-footer">
+      <a class="book-wa-btn" href="https://wa.me/917517414229?text=Hi!%20I%20want%20to%20book%20the%20Swift%20Dzire%20(Old)." target="_blank">📱 Book / Get Quote</a>
+      </div>
+    </div>
+
+    <!-- 4. CIAZ -->
+    <div class="car-card" data-cat="premium">
+      <span class="car-category">Premium Sedan · 5 Seater</span>
+      <div class="car-img-slot" id="img-ciaz">
+        <img src="ciaz-front.jpg" alt="Ciaz" />
+      </div>
+      <div class="car-name">CIAZ</div>
+      <div class="car-model">Maruti Suzuki · AC · Petrol</div>
+      <div class="car-specs">
+        <div class="spec"><span class="spec-val">5 Seats</span><span class="spec-key">Capacity</span></div>
+        <div class="spec"><span class="spec-val">Manual/Auto</span><span class="spec-key">Transmission</span></div>
+        <div class="spec"><span class="spec-val">Premium AC</span><span class="spec-key">Comfort</span></div>
+        <div class="spec"><span class="spec-val">~20 km/l</span><span class="spec-key">Mileage</span></div>
+      </div>
+      <div class="car-features">
+        <span class="feature-tag">Premium</span>
+        <span class="feature-tag">Spacious</span>
+        <span class="feature-tag">Corporate</span>
+      </div>
+      <button class="details-btn" onclick="openModal('ciaz')">View All Photos &amp; Details <span>→</span></button>
+      <div class="car-footer">
+      <a class="book-wa-btn" href="https://wa.me/917517414229?text=Hi!%20I%20want%20to%20book%20the%20Ciaz." target="_blank">📱 Book / Get Quote</a>
+      </div>
+    </div>
+
+    <!-- 5. SWIFT DZIRE (LATEST -1) -->
+    <div class="car-card" data-cat="sedan">
+      <span class="car-category">Sedan · 5 Seater</span>
+      <div class="car-img-slot" id="img-dzire-latest1">
+        <img src="dzire-facelift-front1.jpg" alt="Swift Dzire Latest-1" />
+      </div>
+      <div class="car-name">SWIFT DZIRE</div>
+      <div class="car-model">Latest -1 Model · AC · Petrol</div>
+      <div class="car-specs">
+        <div class="spec"><span class="spec-val">5 Seats</span><span class="spec-key">Capacity</span></div>
+        <div class="spec"><span class="spec-val">Manual/AMT</span><span class="spec-key">Transmission</span></div>
+        <div class="spec"><span class="spec-val">AC</span><span class="spec-key">Comfort</span></div>
+        <div class="spec"><span class="spec-val">~23 km/l</span><span class="spec-key">Mileage</span></div>
+      </div>
+      <div class="car-features">
+        <span class="feature-tag">Modern</span>
+        <span class="feature-tag">Touchscreen</span>
+        <span class="feature-tag">Comfortable</span>
+      </div>
+      <button class="details-btn" onclick="openModal('dzire-latest')">View All Photos &amp; Details <span>→</span></button>
+      <div class="car-footer">
+      <a class="book-wa-btn" href="https://wa.me/917517414229?text=Hi!%20I%20want%20to%20book%20the%20Swift%20Dzire%20(Latest-1)." target="_blank">📱 Book / Get Quote</a>
+      </div>
+    </div>
+
+    <!-- 6. SWIFT -->
+    <div class="car-card" data-cat="hatchback">
+      <span class="car-category">Hatchback · 5 Seater</span>
+      <div class="car-img-slot" id="img-swift">
+        <img src="swift-front.jpg" alt="Swift" />
+      </div>
+      <div class="car-name">SWIFT</div>
+      <div class="car-model">Maruti Suzuki · AC · Petrol</div>
+      <div class="car-specs">
+        <div class="spec"><span class="spec-val">5 Seats</span><span class="spec-key">Capacity</span></div>
+        <div class="spec"><span class="spec-val">Manual/AMT</span><span class="spec-key">Transmission</span></div>
+        <div class="spec"><span class="spec-val">AC</span><span class="spec-key">Comfort</span></div>
+        <div class="spec"><span class="spec-val">~22 km/l</span><span class="spec-key">Mileage</span></div>
+      </div>
+      <div class="car-features">
+        <span class="feature-tag">Compact</span>
+        <span class="feature-tag">Economical</span>
+        <span class="feature-tag">City Rides</span>
+      </div>
+      <button class="details-btn" onclick="openModal('swift')">View All Photos &amp; Details <span>→</span></button>
+      <div class="car-footer">
+      <a class="book-wa-btn" href="https://wa.me/917517414229?text=Hi!%20I%20want%20to%20book%20the%20Swift." target="_blank">📱 Book / Get Quote</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-label">Pricing</div>
+  <div class="section-title">TRANSPARENT<br>RATES</div>
+
+  <div class="pricing-tabs">
+    <button class="pricing-tab active" onclick="showTab('airport', this)">Airport Transfers</button>
+    <button class="pricing-tab" onclick="showTab('goa', this)">Goa Tours</button>
+    <button class="pricing-tab" onclick="showTab('outstation', this)">Outstation</button>
+  </div>
+
+  <!-- AIRPORT PANEL -->
+  <div class="pricing-panel active" id="tab-airport">
+
+    <div class="route-section-title">Dabolim Airport → North Goa Destinations</div>
+    <div class="route-table-wrap">
+      <table class="route-table">
+        <thead>
+          <tr>
+            <th>Destination</th>
+            <th>Hatchback (Swift)</th>
+            <th>Sedan (Dzire)</th>
+            <th>Premium Sedan (Ciaz)</th>
+            <th>MUV (Ertiga)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="place-name">Bambolim / Dona Paula / Miramar / Panjim</td><td class="price-range">₹700 – 1,000</td><td class="price-range">₹900 – 1,300</td><td class="price-range">₹1,200 – 1,500</td><td class="price-range">₹1,200 – 1,500</td></tr>
+          <tr><td class="place-name">Candolim / Calangute / Baga</td><td class="price-range">₹1,000 – 1,500</td><td class="price-range">₹1,200 – 1,500</td><td class="price-range">₹1,500 – 2,000</td><td class="price-range">₹1,500 – 2,000</td></tr>
+          <tr><td class="place-name">Vagator / Anjuna / Assagao / Siolim</td><td class="price-range">₹1,200 – 1,600</td><td class="price-range">₹1,200 – 1,700</td><td class="price-range">₹1,700 – 2,200</td><td class="price-range">₹1,700 – 2,200</td></tr>
+          <tr><td class="place-name">Morjim / Mandrem / Arambol</td><td class="price-range">₹1,500 – 2,000</td><td class="price-range">₹1,700 – 2,200</td><td class="price-range">₹2,500 – 3,000</td><td class="price-range">₹2,500 – 3,000</td></tr>
+          <tr><td class="place-name">Mopa Airport (North Goa)</td><td class="price-range">₹1,800 – 2,000</td><td class="price-range">₹2,000 – 2,500</td><td class="price-range">₹2,500 – 3,000</td><td class="price-range">₹2,500 – 3,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="route-section-title">Dabolim Airport → South Goa Destinations</div>
+    <div class="route-table-wrap">
+      <table class="route-table">
+        <thead>
+          <tr>
+            <th>Destination</th>
+            <th>Hatchback (Swift)</th>
+            <th>Sedan (Dzire)</th>
+            <th>Premium Sedan (Ciaz)</th>
+            <th>MUV (Ertiga)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="place-name">Madgaon / Colva</td><td class="price-range">₹1,000 – 1,500</td><td class="price-range">₹1,200 – 1,500</td><td class="price-range">₹1,500 – 1,800</td><td class="price-range">₹1,500 – 1,800</td></tr>
+          <tr><td class="place-name">Benaulim / Varca</td><td class="price-range">₹1,200 – 1,500</td><td class="price-range">₹1,500 – 1,800</td><td class="price-range">₹1,800 – 2,000</td><td class="price-range">₹1,500 – 2,000</td></tr>
+          <tr><td class="place-name">Cavelossim / Mobor / Cado de Rama</td><td class="price-range">₹1,500 – 2,000</td><td class="price-range">₹1,700 – 2,200</td><td class="price-range">₹2,000 – 2,500</td><td class="price-range">₹2,000 – 2,500</td></tr>
+          <tr><td class="place-name">Agonda / Palolem / Canacona</td><td class="price-range">₹1,500 – 2,000</td><td class="price-range">₹2,000 – 2,500</td><td class="price-range">₹2,500 – 3,000</td><td class="price-range">₹2,500 – 3,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--soft);margin-top:16px;font-style:italic;">* Prices are indicative. Final fare depends on time of day, waiting time, and specific location. WhatsApp us for exact quote.</p>
+  </div>
+
+  <!-- GOA TOURS PANEL -->
+  <div class="pricing-panel" id="tab-goa">
+    <div class="tour-cards">
+      <div class="tour-card">
+        <div class="tour-card-label">North / South Goa</div>
+        <div class="tour-card-name">8 HRS / 80 KM TOUR</div>
+        <div class="tour-price-row"><span class="tour-price-key">Hatchback (Swift)</span><span class="tour-price-val">₹2,500 – 3,000</span></div>
+        <div class="tour-price-row"><span class="tour-price-key">Sedan (Dzire)</span><span class="tour-price-val">₹2,500 – 3,000</span></div>
+        <div class="tour-price-row"><span class="tour-price-key">Premium Sedan (Ciaz)</span><span class="tour-price-val">₹3,000 – 3,500</span></div>
+        <div class="tour-price-row"><span class="tour-price-key">MUV (Ertiga)</span><span class="tour-price-val">₹3,000 – 3,500</span></div>
+        <p class="tour-note">Covers all major North or South Goa beaches & attractions</p>
+      </div>
+      <div class="tour-card">
+        <div class="tour-card-label">North / South Goa</div>
+        <div class="tour-card-name">10 HRS / 100 KM TOUR</div>
+        <div class="tour-price-row"><span class="tour-price-key">Hatchback (Swift)</span><span class="tour-price-val">₹3,000 – 3,500</span></div>
+        <div class="tour-price-row"><span class="tour-price-key">Sedan (Dzire)</span><span class="tour-price-val">₹3,000 – 3,500</span></div>
+        <div class="tour-price-row"><span class="tour-price-key">Premium Sedan (Ciaz)</span><span class="tour-price-val">₹3,500 – 4,000</span></div>
+        <div class="tour-price-row"><span class="tour-price-key">MUV (Ertiga)</span><span class="tour-price-val">₹3,500 – 4,000</span></div>
+        <p class="tour-note">Full-day exploration with extended sightseeing time</p>
+      </div>
+      <div class="tour-card" style="border-color:rgba(201,76,46,0.3);">
+        <div class="tour-card-label" style="color:var(--gold);">Special Attraction</div>
+        <div class="tour-card-name">DUDHSAGAR WATERFALLS</div>
+        <div class="tour-price-row"><span class="tour-price-key">Hatchback (Swift)</span><span class="tour-price-val">₹3,500 – 4,000</span></div>
+        <div class="tour-price-row"><span class="tour-price-key">Sedan (Dzire)</span><span class="tour-price-val">₹3,500 – 4,000</span></div>
+        <div class="tour-price-row"><span class="tour-price-key">Premium Sedan (Ciaz)</span><span class="tour-price-val">₹4,000 – 5,000</span></div>
+        <div class="tour-price-row"><span class="tour-price-key">MUV (Ertiga)</span><span class="tour-price-val">₹4,000 – 5,000</span></div>
+        <p class="tour-note">Includes scenic route through Bhagwan Mahaveer Wildlife Sanctuary</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUTSTATION PANEL -->
+  <div class="pricing-panel" id="tab-outstation">
+    <div class="tour-cards">
+      <div class="tour-card">
+        <div class="tour-card-label">Karnataka</div>
+        <div class="tour-card-name">GOKARNA</div>
+        <div class="tour-price-row"><span class="tour-price-key">All car types</span><span class="tour-price-val">Available on request</span></div>
+        <p class="tour-note">Sacred temple town & pristine beaches</p>
+      </div>
+      <div class="tour-card">
+        <div class="tour-card-label">Karnataka</div>
+        <div class="tour-card-name">MURDESHWAR</div>
+        <div class="tour-price-row"><span class="tour-price-key">All car types</span><span class="tour-price-val">Available on request</span></div>
+        <p class="tour-note">Famous Shiva statue & Arabian Sea views</p>
+      </div>
+      <div class="tour-card">
+        <div class="tour-card-label">Karnataka</div>
+        <div class="tour-card-name">UDUPI / MANGALORE</div>
+        <div class="tour-price-row"><span class="tour-price-key">All car types</span><span class="tour-price-val">Available on request</span></div>
+        <p class="tour-note">Coastal Karnataka cuisine & temples</p>
+      </div>
+      <div class="tour-card">
+        <div class="tour-card-label">Karnataka</div>
+        <div class="tour-card-name">DANDELI / HAMPI</div>
+        <div class="tour-price-row"><span class="tour-price-key">All car types</span><span class="tour-price-val">Available on request</span></div>
+        <p class="tour-note">Wildlife sanctuary & UNESCO heritage site</p>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:24px;background:rgba(201,76,46,0.05);border:1px solid rgba(201,76,46,0.15);">
+      <p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;color:var(--soft);">For all outstation trips, please WhatsApp us with your destination, travel dates, and number of passengers for a custom quote.</p>
+      <a href="https://wa.me/917517414229?text=Hi!%20I%20need%20a%20quote%20for%20an%20outstation%20trip." target="_blank" class="btn-whatsapp" style="margin-top:20px;display:inline-flex;">📱 Get Custom Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="section-label">Why Choose Us</div>
+  <div class="section-title">TRUSTED BY<br>TRAVELLERS</div>
+  <div class="why-grid">
+    <div class="why-features">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-text">
+          <h3>Well-Maintained Cars</h3>
+          <p>All our cars are regularly serviced and inspected. Clean, comfortable, and reliable — every ride.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-text">
+          <h3>Honest Pricing</h3>
+          <p>No hidden charges, no last-minute surprises. Clear rates for airport drops, tours, and outstation travel.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-text">
+          <h3>GST Registered</h3>
+          <p>We are a fully GST-registered business (30ATFPN7547P1Z6). Invoices provided on request.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div class="why-text">
+          <h3>24/7 WhatsApp Booking</h3>
+          <p>Book any time via WhatsApp. Quick responses, instant confirmation, and doorstep pickup across Goa.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <div class="why-big-num">GOA</div>
+      <div class="why-stats-grid">
+        <div class="why-stat"><span class="why-stat-num">6+</span><span class="why-stat-label">Cars across all categories</span></div>
+        <div class="why-stat"><span class="why-stat-num">24/7</span><span class="why-stat-label">WhatsApp support available</span></div>
+        <div class="why-stat"><span class="why-stat-num">GST</span><span class="why-stat-label">Registered & verified business</span></div>
+        <div class="why-stat"><span class="why-stat-num">100%</span><span class="why-stat-label">Satisfaction commitment</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact Us</div>
+  <div class="section-title">BOOK YOUR<br>RIDE</div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>Ready to travel? Fill in your details and we'll confirm your booking quickly — or WhatsApp us directly for the fastest response.</p>
+
+      <div class="whatsapp-buttons">
+        <a class="whatsapp-btn-big" href="https://wa.me/917517414229?text=Hi%20Sunita%20Tour%20%26%20Travels!%20I%27d%20like%20to%20book%20a%20car." target="_blank">
+          <span class="wa-icon">📱</span>
+          <div class="wa-info">
+            <span class="wa-label">WhatsApp · Primary</span>
+            <span class="wa-number">+91 75174 14229</span>
+          </div>
+        </a>
+        <a class="whatsapp-btn-big" href="https://wa.me/917387383092?text=Hi%20Sunita%20Tour%20%26%20Travels!%20I%27d%20like%20to%20book%20a%20car." target="_blank">
+          <span class="wa-icon">📱</span>
+          <div class="wa-info">
+            <span class="wa-label">WhatsApp · Alternate</span>
+            <span class="wa-number">+91 73873 83092</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="contact-detail">
+        <span class="contact-icon">✉️</span>
+        <div class="contact-detail-text">
+          <h4>Email</h4>
+          <p>nugulamanohar@gmail.com</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-icon">📍</span>
+        <div class="contact-detail-text">
+          <h4>Service Area</h4>
+          <p>All of Goa · Karnataka Routes</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-icon">🧾</span>
+        <div class="contact-detail-text">
+          <h4>GST Number</h4>
+          <p>30ATFPN7547P1Z6</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-icon">🕐</span>
+        <div class="contact-detail-text">
+          <h4>Availability</h4>
+          <p>Daily: 6:00 AM – 10:00 PM (WhatsApp 24/7)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="fname" placeholder="Your Name" />
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" id="fphone" placeholder="+91 XXXXX XXXXX" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Travel Date</label>
+          <input type="date" id="fdate" />
+        </div>
+        <div class="form-group">
+          <label>No. of Passengers</label>
+          <select id="fpax">
+            <option value="">— Select —</option>
+            <option>1–3 passengers</option>
+            <option>4–5 passengers</option>
+            <option>6–7 passengers</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Car of Interest</label>
+        <select id="fcar">
+          <option value="">— Select a car —</option>
+          <option>Ertiga (7-Seater MUV)</option>
+          <option>Swift Dzire — New Model</option>
+          <option>Swift Dzire — Old Model</option>
+          <option>Ciaz (Premium Sedan)</option>
+          <option>Swift Dzire — Latest -1 Model</option>
+          <option>Swift (Hatchback)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Trip Details / Pickup Location</label>
+        <textarea id="fmsg" placeholder="Tell us: pickup location, destination, type of trip (airport transfer / Goa tour / outstation)..."></textarea>
+      </div>
+      <p class="form-note">* Clicking the button below will open WhatsApp with your details pre-filled for the fastest response.</p>
+      <div class="success-msg" id="successMsg">✓ Opening WhatsApp... We'll confirm your booking shortly!</div>
+      <button class="submit-btn" onclick="submitForm()">📱 Send via WhatsApp →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">SUNITA <span>TOUR</span> & TRAVELS</div>
+      <div class="footer-tagline">Trusted Travel Partner in Goa</div>
+      <div class="footer-gst">GST: 30ATFPN7547P1Z6</div>
+    </div>
+    <div class="footer-links">
+      <a href="#fleet">Our Cars</a>
+      <a href="#pricing">Rates</a>
+      <a href="#why">About</a>
+      <a href="#contact">Book Now</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Sunita Tour & Travels. All rights reserved.</div>
+    <a href="https://wa.me/917517414229" target="_blank" class="footer-wa">
+      <span>📱 +91 75174 14229</span>
+    </a>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     CAR DETAIL MODAL
+════════════════════════════════════════════ -->
+<div class="car-modal-overlay" id="carModal">
+  <div class="car-modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+
+    <!-- LEFT: Gallery -->
+    <div class="modal-gallery">
+      <div class="modal-main-img">
+        <img id="modalMainImg" src="" alt="" />
+        <button class="gallery-arrow gallery-prev" onclick="shiftImg(-1)">&#8249;</button>
+        <button class="gallery-arrow gallery-next" onclick="shiftImg(1)">&#8250;</button>
+        <div class="img-counter" id="imgCounter">1 / 1</div>
+      </div>
+      <div class="modal-thumbs" id="modalThumbs"></div>
+    </div>
+
+    <!-- RIGHT: Info -->
+    <div class="modal-info">
+      <div class="modal-cat-tag" id="modalCat"></div>
+      <div class="modal-car-name" id="modalName"></div>
+      <div class="modal-subtitle" id="modalSubtitle"></div>
+      <div class="modal-plate" id="modalPlate"></div>
+      <div class="modal-highlight" id="modalHighlight"></div>
+      <div class="modal-specs-grid" id="modalSpecs"></div>
+      <div class="modal-features-row" id="modalFeatures"></div>
+      <div class="modal-price-row">
+        <p class="modal-quote-note">💬 Fare is based on your pickup &amp; destination. WhatsApp us and we'll send an exact quote within minutes.</p>
+        <a class="btn-whatsapp" id="modalWA" href="#" target="_blank" style="text-align:center; justify-content:center;">📱 Book / Get Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Fleet filter
+  function filterCars(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.car-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+    });
+  }
+
+  // Pricing tabs
+  function showTab(tab, btn) {
+    document.querySelectorAll('.pricing-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.pricing-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+  }
+
+  // WhatsApp form submit
+  function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const date  = document.getElementById('fdate').value;
+    const pax   = document.getElementById('fpax').value;
+    const car   = document.getElementById('fcar').value;
+    const msg   = document.getElementById('fmsg').value.trim();
+
+    if (!name || !phone) {
+      alert('Please enter your name and phone number.');
+      return;
+    }
+
+    const text = `Hi Sunita Tour & Travels! 🙏\n\nName: ${name}\nPhone: ${phone}${date ? '\nDate: ' + date : ''}${pax ? '\nPassengers: ' + pax : ''}${car ? '\nCar: ' + car : ''}${msg ? '\nDetails: ' + msg : ''}\n\nPlease confirm my booking.`;
+
+    document.getElementById('successMsg').style.display = 'block';
+    window.open('https://wa.me/917517414229?text=' + encodeURIComponent(text), '_blank');
+    setTimeout(() => { document.getElementById('successMsg').style.display = 'none'; }, 6000);
+  }
+
+  // Set min date to today
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('fdate').min = today;
+
+  // ── CAR MODAL DATA ──────────────────────────────────
+  const CARS = {
+    'ertiga': {
+      name: 'ERTIGA',
+      subtitle: 'Maruti Suzuki · MUV · 7 Seater · Petrol/CNG',
+      category: 'MUV · 7 Seater',
+      plate: 'Reg: GA 06 U 0626',
+      images: [
+        'ertiga-side.jpg',
+        'ertiga-front.jpg',
+        'ertiga-rear.jpg',
+        'ertiga-interior.jpg',
+      ],
+      specs: [
+        ['Capacity','7 Passengers'],['Fuel','Petrol / CNG'],
+        ['Transmission','Manual'],['Mileage','~17 km/l'],
+        ['AC','Front & Rear AC'],['Boot Space','Large (209 L)'],
+      ],
+      features: ['7 Seater','Spacious Boot','Family Trips','Airport Runs','Group Tours','Outstation'],
+      highlight: 'The best choice for families, large groups, and anyone with plenty of luggage. Seats 6 passengers + driver in comfort, with a generous boot that swallows suitcases easily. Handles long outstation runs and Goa sightseeing tours effortlessly.',
+      price: '₹1,200+',
+      wa: 'Hi%20Sunita%20Tour%20%26%20Travels!%20I%27d%20like%20to%20book%20the%20Ertiga%20(7-Seater%20MUV).%20Please%20share%20availability%20and%20pricing.',
+    },
+    'dzire-new': {
+      name: 'SWIFT DZIRE',
+      subtitle: 'New 2024 Generation · Sedan · 5 Seater · Petrol',
+      category: 'Sedan · 5 Seater · New Model',
+      plate: 'Reg: GA 06 U 0418',
+      images: [
+        'dzire-new-front.jpg',
+        'dzire-new-side.jpg',
+        'dzire-new-rear.jpg',
+        'dzire-new-interior.jpg',
+      ],
+      specs: [
+        ['Capacity','5 Passengers'],['Fuel','Petrol'],
+        ['Transmission','Manual / AMT'],['Mileage','~23 km/l'],
+        ['AC','Auto Climate Control'],['Generation','All-New 2024 Model'],
+      ],
+      features: ['All-New 2024','Touchscreen','Modern Safety','Fuel Efficient','Comfortable','Clean Interior'],
+      highlight: 'The completely redesigned 2024 Dzire — the newest car in the fleet. Features a fresh exterior, premium cabin, touchscreen infotainment, and class-leading fuel efficiency. Perfect for couples, small families, and business travellers who want a modern feel.',
+      price: '₹900+',
+      wa: 'Hi%20Sunita%20Tour%20%26%20Travels!%20I%27d%20like%20to%20book%20the%20Swift%20Dzire%20(New%202024%20Model).%20Please%20share%20availability%20and%20pricing.',
+    },
+    'dzire-old': {
+      name: 'SWIFT DZIRE',
+      subtitle: 'Classic Model · Sedan · 5 Seater · Petrol',
+      category: 'Sedan · 5 Seater · Classic Model',
+      plate: 'Reg: GA 06 T 6303',
+      images: [
+        'dzire-old-front.jpg',
+        'dzire-old-tour.jpg',
+        'dzire-old-side.jpg',
+      ],
+      specs: [
+        ['Capacity','5 Passengers'],['Fuel','Petrol'],
+        ['Transmission','Manual'],['Mileage','~22 km/l'],
+        ['AC','Yes'],['Style','Classic Alloy Wheels'],
+      ],
+      features: ['Budget Friendly','Reliable','Airport Drops','Proven Performance','Comfortable','Local Trips'],
+      highlight: 'A tried-and-tested classic with thousands of kilometres of reliable Goa service behind it. The most wallet-friendly sedan option — great for airport transfers, quick city trips, and travellers who want a clean, comfortable ride without spending extra.',
+      price: '₹700+',
+      wa: 'Hi%20Sunita%20Tour%20%26%20Travels!%20I%27d%20like%20to%20book%20the%20Swift%20Dzire%20(Classic%20Model).%20Please%20share%20availability%20and%20pricing.',
+    },
+    'ciaz': {
+      name: 'CIAZ',
+      subtitle: 'Maruti Suzuki · Premium Sedan · 5 Seater · Petrol',
+      category: 'Premium Sedan · 5 Seater',
+      plate: 'Reg: GA 03 AH 4789',
+      images: [
+        'ciaz-front.jpg',
+        'ciaz-side.jpg',
+        'ciaz-rear.jpg',
+      ],
+      specs: [
+        ['Capacity','5 Passengers'],['Fuel','Petrol'],
+        ['Transmission','Manual / Automatic'],['Mileage','~20 km/l'],
+        ['AC','Dual-Zone Climate'],['Cabin','Largest in Segment'],
+      ],
+      features: ['Premium Cabin','Leather Seats','Corporate Travel','Honeymoon Trips','Smooth Ride','Spacious Legroom'],
+      highlight: 'The flagship of the fleet. The Ciaz has the largest interior of any C-segment sedan in India — exceptional legroom, premium upholstery, and a whisper-quiet ride. Ideal for corporate clients, honeymooners, and anyone who insists on travelling in style.',
+      price: '₹1,200+',
+      wa: 'Hi%20Sunita%20Tour%20%26%20Travels!%20I%27d%20like%20to%20book%20the%20Ciaz%20(Premium%20Sedan).%20Please%20share%20availability%20and%20pricing.',
+    },
+    'dzire-latest': {
+      name: 'SWIFT DZIRE',
+      subtitle: 'Facelift Models · Sedan · 5 Seater · Petrol',
+      category: 'Sedan · 5 Seater · Facelift Model',
+      plate: 'Reg: GA 06 T 9061 / GA 06 U 0736',
+      images: [
+        'dzire-facelift-front1.jpg',
+        'dzire-facelift-front2.jpg',
+        'dzire-facelift-side1.jpg',
+        'dzire-facelift-side2.jpg',
+        'dzire-facelift-rear.jpg',
+      ],
+      specs: [
+        ['Capacity','5 Passengers'],['Fuel','Petrol'],
+        ['Transmission','Manual / AMT'],['Mileage','~23 km/l'],
+        ['AC','Yes'],['Generation','Diamond Grille Facelift'],
+      ],
+      features: ['Modern Design','Diamond Grille','LED DRLs','Touchscreen','Fuel Efficient','Well-Maintained'],
+      highlight: 'The diamond-grille facelift Dzire — more contemporary than the classic, with updated exterior styling, improved cabin tech, and sharper road presence. We have multiple units of this variant, so availability is excellent for group bookings or back-to-back trips.',
+      price: '₹900+',
+      wa: 'Hi%20Sunita%20Tour%20%26%20Travels!%20I%27d%20like%20to%20book%20the%20Swift%20Dzire%20(Facelift%20Model).%20Please%20share%20availability%20and%20pricing.',
+    },
+    'swift': {
+      name: 'SWIFT',
+      subtitle: 'Maruti Suzuki · Hatchback · 5 Seater · Petrol',
+      category: 'Hatchback · 5 Seater',
+      plate: 'Reg: GA 06 T 6942',
+      images: [
+        'swift-front.jpg',
+        'swift-side.jpg',
+        'swift-rear.jpg',
+      ],
+      specs: [
+        ['Capacity','5 Passengers'],['Fuel','Petrol'],
+        ['Transmission','Manual / AMT'],['Mileage','~22 km/l'],
+        ['AC','Yes'],['Type','Compact Hatchback'],
+      ],
+      features: ['Compact','Easy Parking','City Rides','Economical','Agile','Sports Look'],
+      highlight: 'The nimblest car in the fleet. The Swift slips through Goa\'s narrow beach lanes and busy market streets effortlessly. Best for solo travellers and couples exploring the island who want a sporty, economical ride that parks anywhere and never feels cramped inside.',
+      price: '₹700+',
+      wa: 'Hi%20Sunita%20Tour%20%26%20Travels!%20I%27d%20like%20to%20book%20the%20Swift%20(Hatchback).%20Please%20share%20availability%20and%20pricing.',
+    },
+  };
+
+  // ── MODAL LOGIC ──────────────────────────────────────
+  let currentImgs = [], currentIdx = 0;
+
+  function openModal(carKey) {
+    const car = CARS[carKey];
+    if (!car) return;
+
+    currentImgs = car.images;
+    currentIdx  = 0;
+
+    document.getElementById('modalCat').textContent       = car.category;
+    document.getElementById('modalName').textContent      = car.name;
+    document.getElementById('modalSubtitle').textContent  = car.subtitle;
+    document.getElementById('modalPlate').textContent     = car.plate;
+    document.getElementById('modalHighlight').textContent = car.highlight;
+    document.getElementById('modalWA').href = 'https://wa.me/917517414229?text=' + car.wa;
+
+    // Specs
+    const specsEl = document.getElementById('modalSpecs');
+    specsEl.innerHTML = car.specs.map(([k,v]) =>
+      `<div class="modal-spec-item"><span class="modal-spec-key">${k}</span><span class="modal-spec-val">${v}</span></div>`
+    ).join('');
+
+    // Features
+    document.getElementById('modalFeatures').innerHTML = car.features.map(f =>
+      `<span class="modal-feat-tag">${f}</span>`
+    ).join('');
+
+    // Thumbnails
+    const thumbsEl = document.getElementById('modalThumbs');
+    thumbsEl.innerHTML = car.images.map((src, i) =>
+      `<img class="modal-thumb${i===0?' active':''}" src="${src}" alt="Photo ${i+1}" onclick="goImg(${i})" />`
+    ).join('');
+
+    setImg(0);
+    document.getElementById('carModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('carModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('carModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('carModal').classList.contains('open')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft')  shiftImg(-1);
+    if (e.key === 'ArrowRight') shiftImg(1);
+  });
+
+  function setImg(idx) {
+    const img = document.getElementById('modalMainImg');
+    img.classList.add('fading');
+    setTimeout(() => {
+      img.src = currentImgs[idx];
+      img.classList.remove('fading');
+    }, 150);
+    document.getElementById('imgCounter').textContent = (idx + 1) + ' / ' + currentImgs.length;
+    document.querySelectorAll('.modal-thumb').forEach((t, i) => {
+      t.classList.toggle('active', i === idx);
+    });
+    currentIdx = idx;
+  }
+
+  function shiftImg(dir) {
+    const next = (currentIdx + dir + currentImgs.length) % currentImgs.length;
+    setImg(next);
+  }
+
+  function goImg(idx) { setImg(idx); }
+</script>
+</body>
+</html>
